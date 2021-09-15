@@ -2,6 +2,19 @@
 
 Project for prototyping ideas for "D4 server".  Initially bigwig is used as a proxy for d4 files.
 
+#### Installation
+
+You need a recent version of python, tested with 3.9, and pip
+
+```
+pip install -r requirements.txt
+python d4_server.py
+```
+
+The server will now be listening on port 8888.  You can change the port by editing d4_server.py
+
+
+
 #### URL Syntax
 
 The basic URL syntax to use with IGV is as follows
@@ -25,7 +38,7 @@ Parameters can be
 
 * none, in which case nothing is returned
 * class=header,  which currently returns the chromosome names as a json array.  This is important for IGV to be able do chr name aliasing.
-* chr=<chr>&start=<start>&end=<end>,  data query, returns a binary response as described below.
+* chr=str&start=int&end=int,  data query, returns a binary response as described below.
 
 Data query response is simply a binary stream of bytes in the following order.  In a real implementation we would gzip this.
 
